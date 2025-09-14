@@ -1,0 +1,77 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# ==========================
+# Data & Artifacts (heavy files)
+# ==========================
+chat/
+data/
+artifacts/
+chat/housing_docs/        # generated PDFs
+*.csv
+*.xlsx
+*.parquet
+*.feather
+*.h5
+*.zip
+*.pkl
+*.faiss
+
+# ==========================
+# Logs & Outputs
+# ==========================
+*.log
+*.out
+*.tmp
+
+# ==========================
+# Images & Visuals (raw, irrelevant, or output)
+# ==========================
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.tiff
+*.bmp
+
+# ==========================
+# ML/Experiment Artifacts
+# ==========================
+mlruns/
+.streamlit/
+
+# ==========================
+# OS files
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# IDE settings
+# ==========================
+.vscode/
+.idea/
+
+# ==========================
+# Environment & Config
+# ==========================
+.env
+.env.*
+*.key
+*.json
+
+# Python script outputs
+build_indexPDF.py
+generate_docs.py

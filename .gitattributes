@@ -1,0 +1,34 @@
+# Ensure consistent line endings across platforms
+* text=auto
+
+# Treat Python files as UTF-8
+*.py text eol=lf
+
+# Handle CSV and data files as text (for diffing)
+*.csv text
+*.tsv text
+*.json text
+*.yaml text
+*.yml text
+
+# Prevent binary files from being diffed
+*.pkl binary
+*.faiss binary
+*.joblib binary
+*.pdf binary
+*.zip binary
+
+# Ignore notebook outputs in diffs
+*.ipynb filter=drop-output
+
+# Streamlit config files
+.streamlit/* text
+
+# Markdown and documentation
+*.md text
+README.md text
+LICENSE text
+
+# Treat shell scripts and config as LF
+*.sh text eol=lf
+*.env text eol=lf

@@ -1,0 +1,114 @@
+
+# 🏠 UK Housing Market Dashboard
+
+An intelligent, interactive dashboard and chatbot designed to help users explore, analyze, and predict property prices across the UK housing market. Built with Streamlit, powered by XGBoost and DeepSeek LLM, this tool is ideal for buyers, investors, and real estate analysts seeking data-driven insights.
+
+---
+
+## 🚀 Features
+
+### 📊 Market Dashboard
+- **Budget-Based Filtering**: View properties under a selected price range
+- **District Selection**: Filter listings by district
+- **Undervalued Districts**: Identify areas where predicted prices exceed sale prices
+- **Market Scenario Simulation**: Adjust market conditions and visualize price shifts
+- **High-Risk Property Detection**: Flag listings with poor market indicators or long time on market
+
+### 💬 Smart Chatbot
+- **RAG-powered Assistant**: Retrieves context from housing documents and answers user queries
+- **DeepSeek LLM Integration**: Generates robust, natural language responses
+- **PDF Export**: Save chat conversations as housing reports
+
+### 🔮 Price Prediction Tool
+- **Custom Input Form**: Users can enter property details to get instant price predictions
+-  Estimates are based purely on property and market features
+
+---
+
+## 🧠 Tech Stack
+
+| Layer              | Technology                          |
+|-------------------|--------------------------------------|
+| Frontend          | Streamlit                            |
+| ML Model          | XGBoost                              |
+| Embeddings        | SentenceTransformers (`e5-small-v2`) |
+| Vector Search     | FAISS                                |
+| LLM               | DeepSeek via OpenRouter              |
+| Data              | Feature-engineered UK housing CSV    |
+|                              |
+
+---
+
+## 📁 Project Structure
+
+```
+├── chat_dashboard.py         # Main Streamlit app
+├── data/
+│   └── feature_engineered_data.csv
+├── artifacts/
+│   └── XGBoost_model.pkl
+├── index.faiss               # FAISS vector index
+├── docs.pkl                  # Embedded document chunks
+├── .env                      # API keys and config
+└── chat/
+    └── housing_docs/         # Saved PDF reports
+```
+
+---
+
+## ⚙️ Setup Instructions
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/uk-housing-dashboard.git
+   cd uk-housing-dashboard
+   ```
+
+2. **Create a virtual environment**
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Add your `.env` file**
+   ```
+   DEEPSEEK_API_KEY=your_openrouter_api_key
+   DEEPSEEK_API_BASE=https://openrouter.ai/api/v1
+   ```
+
+5. **Run the app**
+   ```bash
+   streamlit run chat_dashboard.py
+   ```
+
+---
+
+## 🧪 Example Questions for Chatbot
+
+- “Which districts have affordable 2-bedroom flats under £500,000”
+- “What does the investor report say about Croydon’s long-term potential?”
+- “Summarize the goals of the UK Housing Market Chatbot project”
+
+---
+
+## 📌 Notes
+
+- Make sure your `feature_engineered_data.csv` is clean and includes all required columns.
+- The chatbot uses a Retrieval-Augmented Generation (RAG) pipeline for context-aware responses.
+- The prediction form excludes agent commission to provide unbiased estimates.
+
+---
+
+## 👩‍💻 Author
+
+**Ifeoma Adigwe**  
+Data Scientist & AI Developer  
+📍 Geislingen, Germany  
+💼 Powered by Streamlit & DeepSeek LLM
+
+---
