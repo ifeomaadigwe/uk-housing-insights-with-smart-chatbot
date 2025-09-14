@@ -13,8 +13,10 @@ venv/
 .ipynb_checkpoints/
 
 # ==========================
-# Data & Artifacts (heavy files)
+# Data & Artifacts (heavy files) but # Keep important project CSVs
 # ==========================
+
+!data/feature_engineered_data.csv
 chat/
 data/
 artifacts/
