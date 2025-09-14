@@ -18,19 +18,22 @@ import matplotlib.pyplot as plt
 # ==============================
 # Load environment variables
 # ==============================
-load_dotenv()
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
-DEEPSEEK_API_BASE = os.getenv("DEEPSEEK_API_BASE", "https://openrouter.ai/api/v1")
+if "DEEPSEEK_API_KEY" in st.secrets:
+    API_KEY = st.secrets["DEEPSEEK_API_KEY"]
+    API_BASE = st.secrets.get("DEEPSEEK_API_BASE", "https://api.deepseek.com")
+else:
+    load_dotenv()
+    API_KEY = os.getenv("DEEPSEEK_API_KEY")
+    API_BASE = os.getenv("DEEPSEEK_API_BASE", "https://api.deepseek.com")
 
-if not DEEPSEEK_API_KEY:
-    st.error("❌ API key not found. Please add DEEPSEEK_API_KEY to your .env file.")
-    st.stop()
+if not API_KEY:
+    raise ValueError("❌ API key not found. Please set it in .env (local) or Streamlit Secrets (cloud).")
 
-try:
-    client = OpenAI(api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_API_BASE)
-except Exception as e:
-    st.error(f"❌ Failed to initialize OpenAI client: {e}")
-    st.stop()
+# ✅ Initialize DeepSeek client
+client = OpenAI(
+    api_key=API_KEY,
+    base_url=API_BASE
+)
 
 # ==============================
 # Load Data & Model
